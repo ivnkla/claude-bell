@@ -1,16 +1,23 @@
 # claude-bell
 
-Sound notifications for [Claude Code](https://claude.ai/code) via hooks.
+<table><tr>
+<td><img src="assets/logo-no-bg-2000x2000.png" width="100" alt="claude-bell logo"/></td>
+<td>
 
-Plays a sound when Claude finishes a response, requests a permission, or asks a question — so you can look away while it works.
+Tired of waiting Claude?  
+Sound notifications for [Claude Code](https://claude.ai/code) via hooks.  
+Plays a sound when Claude finishes a response, requests a permission, or asks a question so you can look away while it works.
+
+</td>
+</tr></table>
 
 ## Hooks installed
 
-| Event | Sound |
-|---|---|
-| Claude stops (response complete) | `complete.oga` / `Glass.aiff` |
-| Permission request | `window-question.oga` / `Tink.aiff` |
-| Claude asks a question | `window-question.oga` / `Tink.aiff` |
+| Event | Sound (Linux) | Sound (macOS) |
+|---|---|---|
+| Claude stops (response complete) | `complete.oga` | `Glass.aiff` |
+| Claude asks a question (`PostToolUse`) | `power-unplug.oga` | `Tink.aiff` |
+| Permission request | `power-plug.oga` | `Blow.aiff` |
 
 ## Requirements
 
@@ -40,10 +47,14 @@ The script:
 
 Restart Claude Code after installation.
 
-## Uninstall
-
-Remove the three hook entries from `~/.claude/settings.json`, or restore the backup:
+## Test
 
 ```bash
-cp ~/.claude/settings.json.bak ~/.claude/settings.json
+claude @TEST.md
+```
+
+## Uninstall
+
+```bash
+bash uninstall.sh
 ```
