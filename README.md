@@ -1,23 +1,22 @@
 # claude-bell
 
-<table><tr>
-<td><img src="assets/logo-no-bg-2000x2000.png" width="100" alt="claude-bell logo"/></td>
-<td>
+<img src="assets/logo-no-bg-2000x2000.png" width="100" align="left" alt="claude-bell logo"/>
+
+<br/>
 
 Tired of waiting Claude?  
 Sound notifications for [Claude Code](https://claude.ai/code) via hooks.  
 Plays a sound when Claude finishes a response, requests a permission, or asks a question so you can look away while it works.
 
-</td>
-</tr></table>
+<br clear="left"/>
 
 ## Hooks installed
 
 | Event | Sound (Linux) | Sound (macOS) |
 |---|---|---|
-| Claude stops (response complete) | `complete.oga` | `Glass.aiff` |
+| Claude finished talking (`Stop`) | `complete.oga` | `Glass.aiff` |
 | Claude asks a question (`PostToolUse`) | `power-unplug.oga` | `Tink.aiff` |
-| Permission request | `power-plug.oga` | `Blow.aiff` |
+| Claude wants to execute code (`PermissionRequest`) | `power-plug.oga` | `Blow.aiff` |
 
 ## Requirements
 
@@ -25,7 +24,7 @@ Plays a sound when Claude finishes a response, requests a permission, or asks a 
 - **paplay** (Linux) or **afplay** (macOS) — to play sounds
 
 ```bash
-# Debian / Ubuntu / Kali
+# Linux
 sudo apt install jq
 
 # macOS
@@ -41,7 +40,7 @@ bash install.sh
 ```
 
 The script:
-1. Backs up `~/.claude/settings.json` to `~/.claude/settings.json.bak`
+1. Backs up your current `~/.claude/settings.json` to `~/.claude/settings.json.bak`
 2. Merges the three hooks into your existing configuration
 3. Does not overwrite any hooks you already have
 
